@@ -1,4 +1,3 @@
-from curses import baudrate
 import serial;
 
 PORT = 'COM5'

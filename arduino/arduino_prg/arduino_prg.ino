@@ -17,9 +17,9 @@ void loop() {
     valueCorrected2 = 0;
   }
 
-  Serial.print("Sensor1 Value: ");
-  Serial.println(valueCorrected1);
-  Serial.print("Sensor2 Value: ");
+  // Serial.print("Sensor1 Value: ");
+  // Serial.println(valueCorrected1);
+  // Serial.print("Sensor2 Value: ");
   Serial.println(valueCorrected2);
 }
 
