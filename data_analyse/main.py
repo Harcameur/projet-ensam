@@ -1,3 +1,5 @@
-from acquisition.get_data import get_a_full_dataset;
+from acquisition.get_data import save_data_csv
+from acquisition.plotter import plot_data
 
-get_a_full_dataset()
+save_data_csv()
+plot_data()
