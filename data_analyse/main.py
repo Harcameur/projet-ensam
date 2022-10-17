@@ -1,4 +1,3 @@
-from acquisition.get_data import read_data;
+from acquisition.get_data import get_a_full_dataset;
 
-while True:
-    print(read_data())
+get_a_full_dataset()
