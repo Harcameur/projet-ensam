@@ -1,3 +1,5 @@
+"""Setup Module: Contain configuration for the project and arduino information
+"""
 import serial
 
 PORT = 'COM5'
