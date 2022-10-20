@@ -27,17 +27,17 @@ def serialiser():
         list, list: Tuple of x and y list
     """
     data = get_csv("data.csv")
-    x, y = [], []
+    x_data, y_data = [], []
     for line in data:
         tab_line = line.split(';')
-        x.append(float(tab_line[0]))
-        y.append(float(tab_line[1]))
-    return x, y
+        x_data.append(float(tab_line[0]))
+        y_data.append(float(tab_line[1]))
+    return x_data, y_data
 
 
 def plot_data():
     """Show data graph
     """
-    x, y = serialiser()
-    plt.plot(x, y)
+    x_data, y_data = serialiser()
+    plt.plot(x_data, y_data)
     plt.show()
