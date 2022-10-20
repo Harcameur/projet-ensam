@@ -28,10 +28,9 @@ def convert_dataset(dataset):
     return converted_txt
 
 
-def save_data_csv():
+def save_data_csv(name):
     dataset = get_a_full_dataset()
-    filename = CSV_PATH + "data.csv"
+    filename = CSV_PATH + name
     print(filename)
     with open(filename, "w") as file:
         file.write(convert_dataset(dataset))
-    
