@@ -1,7 +1,7 @@
 """ Data Module Acquisiton
 """
 from .setup import arduino, DATA_LENGTH, CSV_PATH
-from .langue import FR
+from .langue import LANG
 
 
 def read_data():
@@ -22,13 +22,13 @@ def get_a_full_dataset():
     """
     i = 0
     dataset = []
-    print(FR['DATA_ACQUISITION']['STARTING_MSG'])
+    print(LANG['DATA_ACQUISITION']['STARTING_MSG'])
     while DATA_LENGTH - i > 0:
         pin = read_data()[:-2]
         if pin != '':
             dataset.append([i, pin])
             i += 1
-    print(FR['DATA_ACQUISITION']['FINISH_MSG'])
+    print(LANG['DATA_ACQUISITION']['FINISH_MSG'])
     print(dataset)
     return dataset
 
