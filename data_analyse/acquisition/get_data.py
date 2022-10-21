@@ -57,5 +57,5 @@ def save_data_csv(name):
     dataset = get_a_full_dataset()
     filename = CSV_PATH + name
     print(filename)
-    with open(filename, "w", encode="utf-8") as file:
+    with open(filename, "w", encoding="utf-8") as file:
         file.write(convert_dataset(dataset))

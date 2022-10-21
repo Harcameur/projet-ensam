@@ -15,7 +15,7 @@ def get_csv(name):
     """
     filename = CSV_PATH + name
     content = []
-    with open(filename, 'r', encode="utf-8") as file:
+    with open(filename, 'r', encoding="utf-8") as file:
         content = file.readlines()
     return content
 

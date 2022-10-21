@@ -1,12 +1,12 @@
 """Setup Module: Contain configuration for the project and arduino information
 """
-import serial
+from serial import Serial
 
 PORT = 'COM5'
 BAUDRATE = 9600
 TIMEOUT = .1
 
-arduino = serial.Serial(port=PORT, baudrate=BAUDRATE, timeout=TIMEOUT)
+arduino = Serial(port=PORT, baudrate=BAUDRATE, timeout=TIMEOUT)
 
 DATA_LENGTH = 2000
 

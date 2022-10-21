@@ -12,6 +12,6 @@ def acquisition(solution_id):
     print(solution_id)
     for i in range(ACQ_LENGHT):
         print(i, ACQ_PATH)
-        # TODO Make multiple data save into csv
+        # Make multiple data save into csv
 
-# TODO Make Prompt interface for future dataset
+# Make Prompt interface for future dataset
