@@ -1,3 +1,5 @@
+"""Main Module for data_analyse
+"""
 from acquisition.ihm import main
 
 
