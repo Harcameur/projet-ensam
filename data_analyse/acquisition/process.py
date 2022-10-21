@@ -1,6 +1,6 @@
 """ Process Module : Do multiple acquisition for creating dataset
 """
-from data_analyse.acquisition.setup import ACQ_LENGHT, ACQ_PATH
+from .setup import ACQ_LENGHT, ACQ_PATH
 
 
 def acquisition(solution_id):
