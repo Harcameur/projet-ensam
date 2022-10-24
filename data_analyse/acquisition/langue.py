@@ -17,8 +17,17 @@ Menu Acquisition choisissez un identifiant:
             "SELECT_MSG": lambda id:
                 f"Id de solution choisi: \033[1m\033[96m{id}\033[0m",
             "PREPARING_MSG": "Preparez vous au début de l'acquistion ..."
+        },
+        "PROCESS": {
+            "STEP": lambda step, acq_lenght, path:
+                f"({step}/{acq_lenght}) - {path}",
+            "1": """
+Pour l'acquisition suivante """,
         }
     },
+    "NOTIFICATION_MESSAGE": {
+        "CONFIRM_MESSAGE": "Appuyer sur entrer pour continuer ..."
+    }
 }
 
 LANG = FR
