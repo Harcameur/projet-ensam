@@ -29,7 +29,6 @@ def get_a_full_dataset():
             dataset.append([i, pin])
             i += 1
     print(LANG['DATA_ACQUISITION']['FINISH_MSG'])
-    print(dataset)
     return dataset
 
 

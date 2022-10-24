@@ -13,7 +13,7 @@ void loop() {
     valueCorrected1 = 0;
   }
 
-  if (valueCorrected2 <= 10) {
+  if (valueCorrected2 <= 50) {
     valueCorrected2 = 0;
   }
 

@@ -17,6 +17,8 @@ def main():
         plotter()
     if cmd_selected == 'a':
         acquisition_start()
+    if cmd_selected == 'c':
+        exit()
 
 
 def acquisition_start():
@@ -28,6 +30,7 @@ def acquisition_start():
 
     print(LANG['DATA_ACQUISITION']['IHM']['SELECT_MSG'](solution))
     start_acquisition(solution)
+    main()
 
 
 def selecting():
@@ -79,4 +82,6 @@ def plotter():
     while file_id != 'c':
         file_id = input(
             "Taper le numéro que vous voulez plotter (c pour quitter) :")
-        plot_data(f"{ACQ_PATH}\\{id_solution}\\{file_id}.csv")
+        if file_id != 'c':
+            plot_data(f"{ACQ_PATH}\\{id_solution}\\{file_id}.csv")
+    main()

@@ -19,7 +19,7 @@ def acquisition(solution_id) -> None:
         recalibrate_id = last_id + i + 1
         path = csv_path(ACQ_PATH, solution_id, recalibrate_id)
         step_message(i, ACQ_LENGHT, path)
-        time.sleep(0.2)
+        time.sleep(0.5)
         save_data_csv(path)
         print("step acquired wait before next")
         # Make multiple data save into csv
@@ -62,7 +62,7 @@ def get_last_id(acq_path, solution_id) -> int:
         int: last id csv
     """
     f = []
-    for (dirpath, dirnames, filenames) in walk(acq_path, solution_id):
+    for (dirpath, dirnames, filenames) in walk(acq_path+solution_id+'\\'):
         f.extend(filenames)
     if f:
         last_f = f[-1]
