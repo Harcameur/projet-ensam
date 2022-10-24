@@ -1,43 +1,42 @@
 """ Plotter Module : visualize signal data
 """
 import matplotlib.pyplot as plt
-from .setup import CSV_PATH
 
 
-def get_csv(name):
+def get_csv(full_path):
     """read csv file
 
     Args:
-        name (str): csv filename
+        full_path (str): full path csv filename
 
     Returns:
         content: list  of csv lines
     """
-    filename = CSV_PATH + name
     content = []
-    with open(filename, 'r', encoding="utf-8") as file:
+    with open(full_path, 'r', encoding="utf-8") as file:
         content = file.readlines()
     return content
 
 
-def serialiser():
+def serialiser(full_path):
     """Convert csv line into python list
 
     Returns:
         list, list: Tuple of x and y list
     """
-    data = get_csv("data.csv")
+    data = get_csv(full_path)
     x_data, y_data = [], []
     for line in data:
         tab_line = line.split(';')
-        x_data.append(float(tab_line[0]))
-        y_data.append(float(tab_line[1]))
+        if len(tab_line) == 3:
+            x_data.append(float(tab_line[0]))
+            y_data.append(float(tab_line[1]))
     return x_data, y_data
 
 
-def plot_data():
+def plot_data(full_path):
     """Show data graph
     """
-    x_data, y_data = serialiser()
+    x_data, y_data = serialiser(full_path)
     plt.plot(x_data, y_data)
     plt.show()

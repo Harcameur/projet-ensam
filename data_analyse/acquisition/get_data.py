@@ -1,6 +1,6 @@
 """ Data Module Acquisiton
 """
-from .setup import arduino, DATA_LENGTH, CSV_PATH
+from .setup import arduino, DATA_LENGTH
 from .langue import LANG
 
 
@@ -55,7 +55,7 @@ def save_data_csv(name):
         name (str): csv filename
     """
     dataset = get_a_full_dataset()
-    filename = CSV_PATH + name
+    filename = name
     print(filename)
-    with open(filename, "w", encoding="utf-8") as file:
+    with open(filename, "w+", encoding="utf-8") as file:
         file.write(convert_dataset(dataset))
