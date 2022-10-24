@@ -11,7 +11,7 @@ TIMEOUT = .1
 
 try:
     arduino = serial.Serial(port=PORT, baudrate=BAUDRATE, timeout=TIMEOUT)
-except Exception as e:
+except FileNotFoundError as e:
     error_message('Arduino Exception', e)
 
 DATA_LENGTH = 700
