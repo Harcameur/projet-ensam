@@ -1,0 +1,553 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="ia_training package" href="ia_training.html" /><link rel="prev" title="data_analyse" href="modules.html" />
+
+    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
+        <title>acquisition package - Projet Ensam 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Projet Ensam 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Projet Ensam 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">data_analyse</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">acquisition package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ia_training.html">ia_training package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="acquisition-package">
+<h1>acquisition package<a class="headerlink" href="#acquisition-package" title="Permalink to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-acquisition.error">
+<span id="acquisition-error-module"></span><h2>acquisition.error module<a class="headerlink" href="#module-acquisition.error" title="Permalink to this heading">#</a></h2>
+<p>Error Module: Manage issue</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.error.error_message">
+<span class="sig-prename descclassname"><span class="pre">acquisition.error.</span></span><span class="sig-name descname"><span class="pre">error_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.error.error_message" title="Permalink to this definition">#</a></dt>
+<dd><p>Send custom error message tag + detail</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>tag (str): exception tag custom by situration
+exception (str): exception detail</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition.get_data">
+<span id="acquisition-get-data-module"></span><h2>acquisition.get_data module<a class="headerlink" href="#module-acquisition.get_data" title="Permalink to this heading">#</a></h2>
+<p>Data Module Acquisiton</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.get_data.convert_dataset">
+<span class="sig-prename descclassname"><span class="pre">acquisition.get_data.</span></span><span class="sig-name descname"><span class="pre">convert_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.get_data.convert_dataset" title="Permalink to this definition">#</a></dt>
+<dd><p>converting python list into csv text</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>dataset (list): data signal list</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: csv content</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.get_data.get_a_full_dataset">
+<span class="sig-prename descclassname"><span class="pre">acquisition.get_data.</span></span><span class="sig-name descname"><span class="pre">get_a_full_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.get_data.get_a_full_dataset" title="Permalink to this definition">#</a></dt>
+<dd><p>setting up dataset from arduino data</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: list of data tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.get_data.read_data">
+<span class="sig-prename descclassname"><span class="pre">acquisition.get_data.</span></span><span class="sig-name descname"><span class="pre">read_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.get_data.read_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting arduino data from port</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: data signal</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.get_data.save_data_csv">
+<span class="sig-prename descclassname"><span class="pre">acquisition.get_data.</span></span><span class="sig-name descname"><span class="pre">save_data_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.get_data.save_data_csv" title="Permalink to this definition">#</a></dt>
+<dd><p>save data in csv file</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>name (str): csv filename</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition.ihm">
+<span id="acquisition-ihm-module"></span><h2>acquisition.ihm module<a class="headerlink" href="#module-acquisition.ihm" title="Permalink to this heading">#</a></h2>
+<p>IHM Module: Prompt interface for acqauisition data</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.acquisition_start">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">acquisition_start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.acquisition_start" title="Permalink to this definition">#</a></dt>
+<dd><p>Start function IHM for acquisition purpose</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.confirm">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.confirm" title="Permalink to this definition">#</a></dt>
+<dd><p>Confirmation message with keypressing wait for next step</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>msg (str): message printed before keypress</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.main">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.main" title="Permalink to this definition">#</a></dt>
+<dd><p>main function of the ihm</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.plotter">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">plotter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.plotter" title="Permalink to this definition">#</a></dt>
+<dd><p>plotter function show one data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.selecting">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">selecting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.selecting" title="Permalink to this definition">#</a></dt>
+<dd><p>Asking id solution</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: user input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.selecting_cmd">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">selecting_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.selecting_cmd" title="Permalink to this definition">#</a></dt>
+<dd><p>Asking id solution</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: user input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.ihm.start_acquisition">
+<span class="sig-prename descclassname"><span class="pre">acquisition.ihm.</span></span><span class="sig-name descname"><span class="pre">start_acquisition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.ihm.start_acquisition" title="Permalink to this definition">#</a></dt>
+<dd><p>Start Acquisition process, control and give protocol</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>solution (str): id_solution numero</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition.langue">
+<span id="acquisition-langue-module"></span><h2>acquisition.langue module<a class="headerlink" href="#module-acquisition.langue" title="Permalink to this heading">#</a></h2>
+<p>Langue Module for future multilanguage integration</p>
+</section>
+<section id="module-acquisition.plotter">
+<span id="acquisition-plotter-module"></span><h2>acquisition.plotter module<a class="headerlink" href="#module-acquisition.plotter" title="Permalink to this heading">#</a></h2>
+<p>Plotter Module : visualize signal data</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.plotter.get_csv">
+<span class="sig-prename descclassname"><span class="pre">acquisition.plotter.</span></span><span class="sig-name descname"><span class="pre">get_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.plotter.get_csv" title="Permalink to this definition">#</a></dt>
+<dd><p>read csv file</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_path (str): full path csv filename</p>
+</dd>
+<dt>Returns:</dt><dd><p>content: list  of csv lines</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.plotter.plot_data">
+<span class="sig-prename descclassname"><span class="pre">acquisition.plotter.</span></span><span class="sig-name descname"><span class="pre">plot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.plotter.plot_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Show data graph</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.plotter.serialiser">
+<span class="sig-prename descclassname"><span class="pre">acquisition.plotter.</span></span><span class="sig-name descname"><span class="pre">serialiser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.plotter.serialiser" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert csv line into python list</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list, list: Tuple of x and y list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition.process">
+<span id="acquisition-process-module"></span><h2>acquisition.process module<a class="headerlink" href="#module-acquisition.process" title="Permalink to this heading">#</a></h2>
+<p>Process Module : Do multiple acquisition for creating dataset</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.process.acquisition">
+<span class="sig-prename descclassname"><span class="pre">acquisition.process.</span></span><span class="sig-name descname"><span class="pre">acquisition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solution_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#acquisition.process.acquisition" title="Permalink to this definition">#</a></dt>
+<dd><p>Multiple singla data acquistion for one id situation</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>solution_id (str): id situation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.process.csv_path">
+<span class="sig-prename descclassname"><span class="pre">acquisition.process.</span></span><span class="sig-name descname"><span class="pre">csv_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acq_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#acquisition.process.csv_path" title="Permalink to this definition">#</a></dt>
+<dd><p>Create dataset_path</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>acq_path (str): Acquisition path
+solution_id (str): solution number
+i (i): current step</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: complete path for csv file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.process.get_last_id">
+<span class="sig-prename descclassname"><span class="pre">acquisition.process.</span></span><span class="sig-name descname"><span class="pre">get_last_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acq_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#acquisition.process.get_last_id" title="Permalink to this definition">#</a></dt>
+<dd><p>Getting last csv number</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>acq_path (str): csv path
+solution_id (str): solution id</p>
+</dd>
+<dt>Returns:</dt><dd><p>int: last id csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.process.step_message">
+<span class="sig-prename descclassname"><span class="pre">acquisition.process.</span></span><span class="sig-name descname"><span class="pre">step_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acq_lenght</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#acquisition.process.step_message" title="Permalink to this definition">#</a></dt>
+<dd><p>Print every message before each step</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>step (str): step number
+acq_lenght (str): number of steps
+path (str): path where data will be saved</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition.setup">
+<span id="acquisition-setup-module"></span><h2>acquisition.setup module<a class="headerlink" href="#module-acquisition.setup" title="Permalink to this heading">#</a></h2>
+<p>Setup Module: Contain configuration for the project and arduino information</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="acquisition.setup.arduino_setup">
+<span class="sig-prename descclassname"><span class="pre">acquisition.setup.</span></span><span class="sig-name descname"><span class="pre">arduino_setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#acquisition.setup.arduino_setup" title="Permalink to this definition">#</a></dt>
+<dd><p>Connecting to the arduino COM port</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>serial.Serial: serial object to interact with the arduino</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-acquisition">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-acquisition" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ia_training.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">ia_training package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">data_analyse</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Samuel Theron
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">acquisition package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-acquisition.error">acquisition.error module</a><ul>
+<li><a class="reference internal" href="#acquisition.error.error_message"><code class="docutils literal notranslate"><span class="pre">error_message()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition.get_data">acquisition.get_data module</a><ul>
+<li><a class="reference internal" href="#acquisition.get_data.convert_dataset"><code class="docutils literal notranslate"><span class="pre">convert_dataset()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.get_data.get_a_full_dataset"><code class="docutils literal notranslate"><span class="pre">get_a_full_dataset()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.get_data.read_data"><code class="docutils literal notranslate"><span class="pre">read_data()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.get_data.save_data_csv"><code class="docutils literal notranslate"><span class="pre">save_data_csv()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition.ihm">acquisition.ihm module</a><ul>
+<li><a class="reference internal" href="#acquisition.ihm.acquisition_start"><code class="docutils literal notranslate"><span class="pre">acquisition_start()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.confirm"><code class="docutils literal notranslate"><span class="pre">confirm()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.plotter"><code class="docutils literal notranslate"><span class="pre">plotter()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.selecting"><code class="docutils literal notranslate"><span class="pre">selecting()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.selecting_cmd"><code class="docutils literal notranslate"><span class="pre">selecting_cmd()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.ihm.start_acquisition"><code class="docutils literal notranslate"><span class="pre">start_acquisition()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition.langue">acquisition.langue module</a></li>
+<li><a class="reference internal" href="#module-acquisition.plotter">acquisition.plotter module</a><ul>
+<li><a class="reference internal" href="#acquisition.plotter.get_csv"><code class="docutils literal notranslate"><span class="pre">get_csv()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.plotter.plot_data"><code class="docutils literal notranslate"><span class="pre">plot_data()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.plotter.serialiser"><code class="docutils literal notranslate"><span class="pre">serialiser()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition.process">acquisition.process module</a><ul>
+<li><a class="reference internal" href="#acquisition.process.acquisition"><code class="docutils literal notranslate"><span class="pre">acquisition()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.process.csv_path"><code class="docutils literal notranslate"><span class="pre">csv_path()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.process.get_last_id"><code class="docutils literal notranslate"><span class="pre">get_last_id()</span></code></a></li>
+<li><a class="reference internal" href="#acquisition.process.step_message"><code class="docutils literal notranslate"><span class="pre">step_message()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition.setup">acquisition.setup module</a><ul>
+<li><a class="reference internal" href="#acquisition.setup.arduino_setup"><code class="docutils literal notranslate"><span class="pre">arduino_setup()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-acquisition">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
