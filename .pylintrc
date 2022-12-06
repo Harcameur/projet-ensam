@@ -1,2 +1,2 @@
-[MASTER]
-ignore=docs
+[MAIN]
+ignore-paths=docs
