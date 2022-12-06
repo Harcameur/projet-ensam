@@ -2,4 +2,3 @@
 """
 
 CMD_LIST = ["train",  "score"]
-
