@@ -1,2 +1,11 @@
 pyserial
 matplotlib
+Sphinx
+sphinx-basic-ng
+sphinxcontrib-applehelp
+sphinxcontrib-devhelp
+sphinxcontrib-htmlhelp
+sphinxcontrib-jsmath
+sphinxcontrib-qthelp
+sphinxcontrib-serializinghtml
+furo 

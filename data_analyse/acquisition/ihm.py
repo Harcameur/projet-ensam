@@ -1,4 +1,11 @@
 """ IHM Module: Prompt interface for acqauisition data
+
+.. note::
+    This module is for development part it won't be used for the future of the
+    application
+
+.. warning::
+    Do not set on this part on production deployment
 """
 import sys
 
@@ -8,7 +15,7 @@ from .setup import ACQ_PATH, IDS_SOLUTION
 from .langue import LANG
 
 
-CMD_LIST = ["p", "a"]
+CMD_LIST = ["p", "a", "c"]
 
 
 def main():

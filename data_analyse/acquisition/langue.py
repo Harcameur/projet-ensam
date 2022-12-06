@@ -15,7 +15,8 @@ Menu Acquisition choisissez un identifiant:
             "WELCOME_MSG": """
 Menu selection fonction:
     - \033[1m\033[96mp\033[0m : Le plotter
-    - \033[1m\033[96ma\033[0m : Acquisition de données""",
+    - \033[1m\033[96ma\033[0m : Acquisition de données
+    - \033[1m\033[96mc\033[0m : Quitter""",
             "ACQUISITION_MSG": lambda id, current, acq_lenght:
                 f"Acquisition de la solution {id} : ({current}/{acq_lenght}):",
             "SELECT_MSG": lambda id:

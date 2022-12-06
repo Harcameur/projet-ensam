@@ -6,6 +6,14 @@
 Welcome to Projet Ensam's documentation!
 ========================================
 
+
+.. note::
+   This project is under active development.
+
+.. important::
+   You could find a complete wiki on what is the philosphy of the program and how it works
+   https://github.com/Harcameur/projet-ensam/wiki
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
