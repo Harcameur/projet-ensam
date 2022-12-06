@@ -20,10 +20,16 @@ IDS_SOLUTION = ['0', '1', '2']
 
 
 def arduino_setup():
+    """Connecting to the arduino COM port
+
+    Returns:
+        serial.Serial: serial object to interact with the arduino
+    """
     try:
         return serial.Serial(port=PORT, baudrate=BAUDRATE, timeout=TIMEOUT)
     except Exception as exception:  # pylint: disable=W0703
         error_message('Arduino Exception', exception)
+        return None
 
 
 arduino = arduino_setup()

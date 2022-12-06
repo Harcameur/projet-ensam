@@ -37,18 +37,18 @@ def step_message(step, acq_lenght, path) -> None:
         LANG['DATA_ACQUISITION']['PROCESS']['STEP'](step, acq_lenght, path))
 
 
-def csv_path(ACQ_PATH, solution_id, i) -> str:
+def csv_path(acq_path, solution_id, i) -> str:
     """Create dataset_path
 
     Args:
-        ACQ_PATH (str): Acquisition path
+        acq_path (str): Acquisition path
         solution_id (str): solution number
         i (i): current step
 
     Returns:
         str: complete path for csv file
     """
-    return ACQ_PATH + solution_id + "\\" + str(i) + ".csv"
+    return acq_path + solution_id + "\\" + str(i) + ".csv"
 
 
 def get_last_id(acq_path, solution_id) -> int:
@@ -61,12 +61,13 @@ def get_last_id(acq_path, solution_id) -> int:
     Returns:
         int: last id csv
     """
-    f = []
+    fl_id = []
+
     for (dirpath, dirnames, filenames) in walk(acq_path+solution_id+'\\'):
-        f.extend(filenames)
-    if f:
-        last_f = f[-1]
+        dirpath, dirnames  # pylint: disable=pointless-statement
+        fl_id.extend(filenames)
+    if fl_id:
+        last_f = fl_id[-1]
         result = last_f.split('.')[0]
         return int(result)
-    else:
-        return 0
+    return 0

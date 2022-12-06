@@ -1,5 +1,7 @@
-""" IHM Module: Prompt interface
+""" IHM Module: Prompt interface for acqauisition data
 """
+import sys
+
 from .plotter import plot_data
 from .process import acquisition
 from .setup import ACQ_PATH, IDS_SOLUTION
@@ -10,6 +12,8 @@ CMD_LIST = ["p", "a"]
 
 
 def main():
+    """main function of the ihm
+    """
     cmd_selected = ""
     while cmd_selected not in CMD_LIST:
         cmd_selected = selecting_cmd()
@@ -18,7 +22,7 @@ def main():
     if cmd_selected == 'a':
         acquisition_start()
     if cmd_selected == 'c':
-        exit()
+        sys.exit()
 
 
 def acquisition_start():
@@ -74,6 +78,8 @@ def confirm(msg):
 
 
 def plotter():
+    """plotter function show one data
+    """
     print(LANG['DATA_ACQUISITION']['IHM']['MENU_PLOTTER'])
     id_solution = ''
     while id_solution not in IDS_SOLUTION:
