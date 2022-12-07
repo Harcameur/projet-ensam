@@ -14,4 +14,4 @@ Le Projet se découpe en plusieur projet :
 
 ## Documentation
 
-Pour plus de détail sur la documentation technique voici une page dédié à cella https://harcameur.github.io/projet-ensam/main.html
+Pour plus de détail sur la documentation technique voici une page dédié à cela https://harcameur.github.io/projet-ensam/main.html
