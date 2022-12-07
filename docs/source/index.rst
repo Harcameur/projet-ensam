@@ -14,6 +14,9 @@ Welcome to Projet Ensam's documentation!
    You could find a complete wiki on what is the philosphy of the program and how it works
    https://github.com/Harcameur/projet-ensam/wiki
 
+.. important::
+   Check Main module page for more information about starting
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
