@@ -222,6 +222,18 @@
 <section id="module-ia_training.langue">
 <span id="ia-training-langue-module"></span><h2>ia_training.langue module<a class="headerlink" href="#module-ia_training.langue" title="Permalink to this heading">#</a></h2>
 <p>Langue Module for future multilanguage integration</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.langue.color_score">
+<span class="sig-prename descclassname"><span class="pre">ia_training.langue.</span></span><span class="sig-name descname"><span class="pre">color_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_test_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#ia_training.langue.color_score" title="Permalink to this definition">#</a></dt>
+<dd><p>Colorisation des valeurs de score dans la console</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>_test_score (float): score de test</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: le score avec une couleur selon sa valeur</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-ia_training.numpyfy_data">
 <span id="ia-training-numpyfy-data-module"></span><h2>ia_training.numpyfy_data module<a class="headerlink" href="#module-ia_training.numpyfy_data" title="Permalink to this heading">#</a></h2>
@@ -269,28 +281,33 @@
 <p>TRAIN MODULE: IA Training module</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ia_training.train.creating_sets">
-<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">creating_sets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_train_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#ia_training.train.creating_sets" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">creating_sets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_train_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#ia_training.train.creating_sets" title="Permalink to this definition">#</a></dt>
 <dd><p>Créer un set de données selon la train_size</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>_train_size (int | None): taille des jeu de données d’entrainement</p>
 </dd>
-<dt>Returns:</dt><dd><p>tuple: 4 list cx_train, cx_test, pathologie_train, pathologie_test</p>
+<dt>Returns:</dt><dd><p>tuple: 4 list _e_train, _e_test, _classe_train, _classe_test</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="ia_training.train.mlp_apprentissage">
-<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">mlp_apprentissage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_cx_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_pathologie_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MLPClassifier</span></span></span><a class="headerlink" href="#ia_training.train.mlp_apprentissage" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ia_training.train.mlp_learning">
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">mlp_learning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_e_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_classe_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MLPClassifier</span></span></span><a class="headerlink" href="#ia_training.train.mlp_learning" title="Permalink to this definition">#</a></dt>
 <dd><p>Fonction d’apprentissage</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>_cx_train (list): donnée d’entré d’entrainement
-_pathologie_train (list): donnée de sortie d’entrainement</p>
+<dt>Args:</dt><dd><p>_e_train (list): donnée d’entré d’entrainement
+_classe_train (list): donnée de sortie d’entrainement</p>
 </dd>
 <dt>Returns:</dt><dd><p>MLPClassifier: objet IA</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.train.train_with_sets">
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">train_with_sets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.train.train_with_sets" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-ia_training">
@@ -362,7 +379,10 @@ _pathologie_train (list): donnée de sortie d’entrainement</p>
 <li><a class="reference internal" href="#ia_training.ihm.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-ia_training.langue">ia_training.langue module</a></li>
+<li><a class="reference internal" href="#module-ia_training.langue">ia_training.langue module</a><ul>
+<li><a class="reference internal" href="#ia_training.langue.color_score"><code class="docutils literal notranslate"><span class="pre">color_score()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-ia_training.numpyfy_data">ia_training.numpyfy_data module</a><ul>
 <li><a class="reference internal" href="#ia_training.numpyfy_data.convert_panda_to_numpy"><code class="docutils literal notranslate"><span class="pre">convert_panda_to_numpy()</span></code></a></li>
 <li><a class="reference internal" href="#ia_training.numpyfy_data.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
@@ -372,7 +392,8 @@ _pathologie_train (list): donnée de sortie d’entrainement</p>
 </li>
 <li><a class="reference internal" href="#module-ia_training.train">ia_training.train module</a><ul>
 <li><a class="reference internal" href="#ia_training.train.creating_sets"><code class="docutils literal notranslate"><span class="pre">creating_sets()</span></code></a></li>
-<li><a class="reference internal" href="#ia_training.train.mlp_apprentissage"><code class="docutils literal notranslate"><span class="pre">mlp_apprentissage()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.train.mlp_learning"><code class="docutils literal notranslate"><span class="pre">mlp_learning()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.train.train_with_sets"><code class="docutils literal notranslate"><span class="pre">train_with_sets()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-ia_training">Module contents</a></li>

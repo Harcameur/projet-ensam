@@ -2,3 +2,11 @@
 """
 
 TEST_RATIO = 0.3
+
+CEL_LAYER = (60, 10)
+
+ACTIVATION = 'tanh'
+
+SOLVER = 'adam'
+
+MAX_ITER = 1000
