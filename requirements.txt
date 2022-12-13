@@ -8,4 +8,8 @@ sphinxcontrib-htmlhelp
 sphinxcontrib-jsmath
 sphinxcontrib-qthelp
 sphinxcontrib-serializinghtml
-furo 
+furo
+joblib-1.2.0
+scikit-learn-1.2.0
+threadpoolctl-3.1.0
+pandas

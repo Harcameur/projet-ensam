@@ -201,6 +201,10 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 </section>
+<section id="module-ia_training.config">
+<span id="ia-training-config-module"></span><h2>ia_training.config module<a class="headerlink" href="#module-ia_training.config" title="Permalink to this heading">#</a></h2>
+<p>CONFIGURATION MODULE</p>
+</section>
 <section id="module-ia_training.ihm">
 <span id="ia-training-ihm-module"></span><h2>ia_training.ihm module<a class="headerlink" href="#module-ia_training.ihm" title="Permalink to this heading">#</a></h2>
 <p>IHM Module: Prompt interface for IA_training</p>
@@ -215,8 +219,79 @@
 </dd></dl>
 
 </section>
+<section id="module-ia_training.langue">
+<span id="ia-training-langue-module"></span><h2>ia_training.langue module<a class="headerlink" href="#module-ia_training.langue" title="Permalink to this heading">#</a></h2>
+<p>Langue Module for future multilanguage integration</p>
+</section>
+<section id="module-ia_training.numpyfy_data">
+<span id="ia-training-numpyfy-data-module"></span><h2>ia_training.numpyfy_data module<a class="headerlink" href="#module-ia_training.numpyfy_data" title="Permalink to this heading">#</a></h2>
+<p>NUMPYFY DATA MODULE : Convert csv data into numpy file
+(Speed up training)</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.numpyfy_data.convert_panda_to_numpy">
+<span class="sig-prename descclassname"><span class="pre">ia_training.numpyfy_data.</span></span><span class="sig-name descname"><span class="pre">convert_panda_to_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#ia_training.numpyfy_data.convert_panda_to_numpy" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert Panda into Numpy table</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>np.array: all data from files</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.numpyfy_data.get_data">
+<span class="sig-prename descclassname"><span class="pre">ia_training.numpyfy_data.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#ia_training.numpyfy_data.get_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Return data from NPZ File</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>tuple: data entre, classe from npz file into numpy table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.numpyfy_data.get_test_assets">
+<span class="sig-prename descclassname"><span class="pre">ia_training.numpyfy_data.</span></span><span class="sig-name descname"><span class="pre">get_test_assets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">&lt;module</span> <span class="pre">'pandas'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\trawn\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\pandas\\__init__.py'&gt;</span></span></span><a class="headerlink" href="#ia_training.numpyfy_data.get_test_assets" title="Permalink to this definition">#</a></dt>
+<dd><p>Get all CSV data file tests_assets File come from Kabble</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pd: Panda Object: Concatenate frames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.numpyfy_data.save_np_data">
+<span class="sig-prename descclassname"><span class="pre">ia_training.numpyfy_data.</span></span><span class="sig-name descname"><span class="pre">save_np_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.numpyfy_data.save_np_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Save into NPZ file data to speed up future loading</p>
+</dd></dl>
+
+</section>
 <section id="module-ia_training.train">
 <span id="ia-training-train-module"></span><h2>ia_training.train module<a class="headerlink" href="#module-ia_training.train" title="Permalink to this heading">#</a></h2>
+<p>TRAIN MODULE: IA Training module</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.train.creating_sets">
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">creating_sets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_train_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#ia_training.train.creating_sets" title="Permalink to this definition">#</a></dt>
+<dd><p>Créer un set de données selon la train_size</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>_train_size (int | None): taille des jeu de données d’entrainement</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: 4 list cx_train, cx_test, pathologie_train, pathologie_test</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.train.mlp_apprentissage">
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">mlp_apprentissage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_cx_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_pathologie_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MLPClassifier</span></span></span><a class="headerlink" href="#ia_training.train.mlp_apprentissage" title="Permalink to this definition">#</a></dt>
+<dd><p>Fonction d’apprentissage</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>_cx_train (list): donnée d’entré d’entrainement
+_pathologie_train (list): donnée de sortie d’entrainement</p>
+</dd>
+<dt>Returns:</dt><dd><p>MLPClassifier: objet IA</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-ia_training">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ia_training" title="Permalink to this heading">#</a></h2>
@@ -282,11 +357,24 @@
             <ul>
 <li><a class="reference internal" href="#">ia_training package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-ia_training.config">ia_training.config module</a></li>
 <li><a class="reference internal" href="#module-ia_training.ihm">ia_training.ihm module</a><ul>
 <li><a class="reference internal" href="#ia_training.ihm.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module-ia_training.train">ia_training.train module</a></li>
+<li><a class="reference internal" href="#module-ia_training.langue">ia_training.langue module</a></li>
+<li><a class="reference internal" href="#module-ia_training.numpyfy_data">ia_training.numpyfy_data module</a><ul>
+<li><a class="reference internal" href="#ia_training.numpyfy_data.convert_panda_to_numpy"><code class="docutils literal notranslate"><span class="pre">convert_panda_to_numpy()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.numpyfy_data.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.numpyfy_data.get_test_assets"><code class="docutils literal notranslate"><span class="pre">get_test_assets()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.numpyfy_data.save_np_data"><code class="docutils literal notranslate"><span class="pre">save_np_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ia_training.train">ia_training.train module</a><ul>
+<li><a class="reference internal" href="#ia_training.train.creating_sets"><code class="docutils literal notranslate"><span class="pre">creating_sets()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.train.mlp_apprentissage"><code class="docutils literal notranslate"><span class="pre">mlp_apprentissage()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-ia_training">Module contents</a></li>
 </ul>
 </li>
