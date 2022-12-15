@@ -1,11 +1,11 @@
 """CONFIGURATION MODULE
 """
 
-TEST_RATIO = 0.3
+TEST_RATIO = 0.4
 
-CEL_LAYER = (100, 64, 50)
+CEL_LAYER = (189,)
 
-ACTIVATION = 'tanh'
+ACTIVATION = 'relu'
 
 SOLVER = 'adam'
 
