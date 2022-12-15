@@ -64,7 +64,7 @@ def get_last_id(acq_path, solution_id) -> int:
     fl_id = []
 
     for (dirpath, dirnames, filenames) in walk(acq_path+solution_id+'\\'):
-        dirpath, dirnames  # pylint: disable=pointless-statement
+        dirpath, dirnames  # pylint: disable=pointless-statement  # NOSONAR
         fl_id.extend(filenames)
     if fl_id:
         last_f = fl_id[-1]

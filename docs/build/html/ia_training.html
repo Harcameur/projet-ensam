@@ -213,9 +213,35 @@
 <p>This part is only for development purpose, does NOT use it for production</p>
 </div>
 <dl class="py function">
+<dt class="sig sig-object py" id="ia_training.ihm.data_interface">
+<span class="sig-prename descclassname"><span class="pre">ia_training.ihm.</span></span><span class="sig-name descname"><span class="pre">data_interface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.ihm.data_interface" title="Permalink to this definition">#</a></dt>
+<dd><p>Saving data interface npfy data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.ihm.get_score">
+<span class="sig-prename descclassname"><span class="pre">ia_training.ihm.</span></span><span class="sig-name descname"><span class="pre">get_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.ihm.get_score" title="Permalink to this definition">#</a></dt>
+<dd><p>Score IA interface to loop main</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ia_training.ihm.main">
-<span class="sig-prename descclassname"><span class="pre">ia_training.ihm.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.ihm.main" title="Permalink to this definition">#</a></dt>
-<dd><p>Start Ia Prompt interface</p>
+<span class="sig-prename descclassname"><span class="pre">ia_training.ihm.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.ihm.main" title="Permalink to this definition">#</a></dt>
+<dd><p>main function of the ihm</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args (str, optional): Execution argument. Defaults to None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ia_training.ihm.selecting_cmd">
+<span class="sig-prename descclassname"><span class="pre">ia_training.ihm.</span></span><span class="sig-name descname"><span class="pre">selecting_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.ihm.selecting_cmd" title="Permalink to this definition">#</a></dt>
+<dd><p>Asking id solution</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: user input</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -307,7 +333,8 @@ _classe_train (list): donnée de sortie d’entrainement</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="ia_training.train.train_with_sets">
 <span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">train_with_sets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.train.train_with_sets" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Training IA model printing score</p>
+</dd></dl>
 
 </section>
 <section id="module-ia_training">
@@ -376,7 +403,10 @@ _classe_train (list): donnée de sortie d’entrainement</p>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-ia_training.config">ia_training.config module</a></li>
 <li><a class="reference internal" href="#module-ia_training.ihm">ia_training.ihm module</a><ul>
+<li><a class="reference internal" href="#ia_training.ihm.data_interface"><code class="docutils literal notranslate"><span class="pre">data_interface()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.ihm.get_score"><code class="docutils literal notranslate"><span class="pre">get_score()</span></code></a></li>
 <li><a class="reference internal" href="#ia_training.ihm.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.ihm.selecting_cmd"><code class="docutils literal notranslate"><span class="pre">selecting_cmd()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-ia_training.langue">ia_training.langue module</a><ul>

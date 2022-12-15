@@ -18,10 +18,17 @@ from .langue import LANG
 CMD_LIST = ["p", "a", "c"]
 
 
-def main():
+def main(args: str = None):
     """main function of the ihm
+
+    Args:
+        args (str, optional): Execution argument. Defaults to None.
     """
     cmd_selected = ""
+
+    if args:
+        cmd_selected = args
+
     while cmd_selected not in CMD_LIST:
         cmd_selected = selecting_cmd()
     if cmd_selected == 'p':

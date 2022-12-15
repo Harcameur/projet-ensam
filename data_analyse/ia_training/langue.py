@@ -13,7 +13,13 @@ FR = {
     - entrée test : \033[1m {str(_e_test)}\033[0m
     - classe entrainement : \033[1m {str(_classe_train)}\033[0m
     - class test : \033[1m {str(_classe_test)}\033[0m
-            """
+            """,
+    "WELCOME_MSG": """
+Menu selection fonction:
+    - \033[1m\033[96md\033[0m : Sauvegarde des Assets de Test
+    - \033[1m\033[96ms\033[0m : Entrainement et récupération du score de l'IA
+    - \033[1m\033[96mc\033[0m : Quitter""",
+    "MODULE_MSG": "Bienvenu sur le Module IA TRAINING"
 }
 
 

@@ -28,12 +28,26 @@ def start() -> None:
     .. warning::
         Also this type of ihm is used only for development purpose
 
+    Alse there is optional argument like starting function for speeder test.
+
+    .. parsed-literal::
+        python main.py -m <module_name> -s <cmd_name>
+
+    .. tip::
+        The cmd list is refered in `ihm.py` files on the constant `CMD_LIST`
+        for example `main.py -m acquisition -s p` to start directly plotter
+
     """
     parser = argparse.ArgumentParser(description='Ensam Projet Starter : \
         select a module to start')
     parser.add_argument("-m", "--module", help='\
     module name in data_analyse folder and have ihm.py \
-    for example `main.py acquisition`')
+    for example `main.py -m acquisition`')
+
+    parser.add_argument("-s", "--start", help='\
+    [Optional] commande name in the module in ihm.py \
+    for example `main.py -m acquisition -s a`')
+
     args = parser.parse_args()
 
     if not args.module:
@@ -43,7 +57,7 @@ def start() -> None:
     if args.module:
         try:
             mod = __import__(args.module + '.ihm', fromlist=[''])
-            mod.main()
+            mod.main(args.start)
         except Exception as exception:  # pylint: disable=W0703
             print(MOD_ERROR + 'mod ask' + args.module, exception)
 
