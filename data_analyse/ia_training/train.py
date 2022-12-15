@@ -24,10 +24,13 @@ def creating_sets(_train_size: int | None = None) -> tuple:
     _e_train, _e_test, _classe_train, _classe_test =\
         train_test_split(
             entree, classe, train_size=_train_size, test_size=TEST_RATIO)
-    return np.array(_e_train).reshape(-1, 1),\
-        np.array(_e_test).reshape(-1, 1),\
-        np.array(_classe_train).reshape(-1, 1),\
-        np.array(_classe_test).reshape(-1, 1)
+    print(LANG.get('SHAPE_SUMMARY')(
+        _e_train.shape, _e_test.shape, _classe_train.shape,
+        _classe_test.shape))
+    return np.array(_e_train),\
+        np.array(_e_test),\
+        np.array(_classe_train),\
+        np.array(_classe_test)
 
 
 def mlp_learning(
@@ -46,21 +49,18 @@ def mlp_learning(
         activation=ACTIVATION,
         solver=SOLVER,
         max_iter=MAX_ITER)
-    # print(_e_train, _classe_train)
     mlp.fit(
-        np.array(_e_train).reshape(-1, 1),
-        np.array(_classe_train).reshape(-1, 1))  # apprentissage
+        np.array(_e_train),
+        np.array(_classe_train))  # apprentissage
     return mlp
 
 
 def train_with_sets():
+    """Training IA model printing score
+    """
     _e_train, _e_test, _classe_train, _classe_test = creating_sets()
     _mlp = mlp_learning(_e_train, _classe_train)
     _score_test, _score_train = _mlp.score(_e_test, _classe_test),\
         _mlp.score(_e_train, _classe_train)
     print(LANG.get('SCORE_TRAIN')(_score_train))
     print(LANG.get('SCORE_TEST')(_score_test))
-
-
-if __name__ == "__main__":
-    train_with_sets()

@@ -5,8 +5,7 @@
 import numpy as np
 import pandas as pd
 
-
-SAVE_DATA_PATH = "data_analyse/ia_training/data/emg_test"
+from .config import SAVE_DATA_PATH, TEST_ASSETS_PATH
 
 
 def get_test_assets() -> pd:
@@ -16,13 +15,13 @@ def get_test_assets() -> pd:
         pd: Panda Object: Concatenate frames
     """
     df0 = pd.read_csv(
-        "data_analyse/ia_training/test_assets/0.csv", header=None)
+        TEST_ASSETS_PATH + "0.csv", header=None)
     df1 = pd.read_csv(
-        "data_analyse/ia_training/test_assets/1.csv", header=None)
+        TEST_ASSETS_PATH + "1.csv", header=None)
     df2 = pd.read_csv(
-        "data_analyse/ia_training/test_assets/2.csv", header=None)
+        TEST_ASSETS_PATH + "2.csv", header=None)
     df3 = pd.read_csv(
-        "data_analyse/ia_training/test_assets/3.csv", header=None)
+        TEST_ASSETS_PATH + "3.csv", header=None)
     return pd.concat([df0, df1, df2, df3], axis=0)
 
 
@@ -32,7 +31,9 @@ def convert_panda_to_numpy() -> np.array:
     Returns:
         np.array: all data from files
     """
-    return get_test_assets().to_numpy()
+    npfy = get_test_assets().to_numpy()
+    # print(npfy.shape)
+    return npfy
 
 
 def save_np_data():
@@ -48,7 +49,7 @@ def get_data() -> tuple:
         tuple: data entre, classe from npz file into numpy table
     """
     file = np.load(SAVE_DATA_PATH+".npy")
-    entree, classe = file[:, 63], file[:, 64]
+    entree, classe = file[:, :63], file[:, 64]
     return entree, classe
 
 

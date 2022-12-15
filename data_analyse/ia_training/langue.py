@@ -6,6 +6,14 @@ FR = {
         lambda score: f"Score d'entrainement = {color_score(score)}",
     "SCORE_TEST":
         lambda score: f"Score de Test = {color_score(score)}",
+    "SHAPE_SUMMARY":
+        lambda _e_train, _e_test, _classe_train, _classe_test:
+            f"""Dimmensions des jeux de données
+    - entrée entrainement : \033[1m {str(_e_train)}\033[0m
+    - entrée test : \033[1m {str(_e_test)}\033[0m
+    - classe entrainement : \033[1m {str(_classe_train)}\033[0m
+    - class test : \033[1m {str(_classe_test)}\033[0m
+            """
 }
 
 
