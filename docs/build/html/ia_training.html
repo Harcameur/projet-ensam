@@ -331,9 +331,20 @@ _classe_train (list): donnée de sortie d’entrainement</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="ia_training.train.save_mlp">
+<span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">save_mlp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_mlp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MLPClassifier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_save_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'autosave'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ia_training.train.save_mlp" title="Permalink to this definition">#</a></dt>
+<dd><p>Save object Classifier into jobfile to be reused</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>_mlp (MLPClassifier): ia object which would be saved
+_save_name (str, optional): Save filename. Defaults to “autosave”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="ia_training.train.train_with_sets">
 <span class="sig-prename descclassname"><span class="pre">ia_training.train.</span></span><span class="sig-name descname"><span class="pre">train_with_sets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ia_training.train.train_with_sets" title="Permalink to this definition">#</a></dt>
-<dd><p>Training IA model printing score</p>
+<dd><p>Training + Saving (optionnal) IA model printing score</p>
 </dd></dl>
 
 </section>
@@ -423,6 +434,7 @@ _classe_train (list): donnée de sortie d’entrainement</p>
 <li><a class="reference internal" href="#module-ia_training.train">ia_training.train module</a><ul>
 <li><a class="reference internal" href="#ia_training.train.creating_sets"><code class="docutils literal notranslate"><span class="pre">creating_sets()</span></code></a></li>
 <li><a class="reference internal" href="#ia_training.train.mlp_learning"><code class="docutils literal notranslate"><span class="pre">mlp_learning()</span></code></a></li>
+<li><a class="reference internal" href="#ia_training.train.save_mlp"><code class="docutils literal notranslate"><span class="pre">save_mlp()</span></code></a></li>
 <li><a class="reference internal" href="#ia_training.train.train_with_sets"><code class="docutils literal notranslate"><span class="pre">train_with_sets()</span></code></a></li>
 </ul>
 </li>
