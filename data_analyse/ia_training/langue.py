@@ -19,7 +19,12 @@ Menu selection fonction:
     - \033[1m\033[96md\033[0m : Sauvegarde des Assets de Test
     - \033[1m\033[96ms\033[0m : Entrainement et récupération du score de l'IA
     - \033[1m\033[96mc\033[0m : Quitter""",
-    "MODULE_MSG": "Bienvenu sur le Module IA TRAINING"
+    "MODULE_MSG": "Bienvenu sur le Module IA TRAINING",
+    "SAVING_START": "Démarrage de la sauvegarde...",
+    "SAVING_COMPLETED": "\033[92m\033[1mSauvegarde complete !\033[0m",
+    "SAVING_ASK": "Voulez-vous sauvegarder cette entrainement? (y/n)",
+    "RETRY_ASK": "Relancer un entrainement ? (y/n)",
+    "SAVENAME_ASK": "Quel nom pour le fichier de sauvegarde :"
 }
 
 

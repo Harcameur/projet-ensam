@@ -21,10 +21,7 @@ def main(args: str = None):
     """
     print(LANG.get('MODULE_MSG'))
 
-    cmd_selected = ""
-
-    if args:
-        cmd_selected = args
+    cmd_selected = args
 
     while cmd_selected not in CMD_LIST:
         cmd_selected = selecting_cmd()

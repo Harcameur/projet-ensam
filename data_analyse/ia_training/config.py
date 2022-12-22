@@ -13,3 +13,6 @@ MAX_ITER = 1000
 
 SAVE_DATA_PATH = "ia_training/data/emg_test"
 TEST_ASSETS_PATH = "ia_training/test_assets/"
+
+
+IA_SAVING_PATH = "assets/"
